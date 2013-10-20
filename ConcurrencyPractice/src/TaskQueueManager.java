@@ -20,6 +20,7 @@ public class TaskQueueManager {
 			throw new RuntimeException("Couldn't add Job to pool!");
 		};
 		
+		
 	}
 	
 	public Job pull(String qName) {
@@ -32,6 +33,11 @@ public class TaskQueueManager {
 		}
 	}
 	
+	
+	public int getCount(String qName) {
+		ConcurrentLinkedQueue<Job> q = pool.get(qName);
+		return q.size();
+	}
 
 	
 	
